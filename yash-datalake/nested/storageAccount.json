@@ -25,6 +25,12 @@
       "metadata": {
         "description": "Storage Account type"
       }
+    },
+    "resourceTags": {
+      "type": "object",
+      "metadata": {
+        "description": " Tags assigned to resources"
+      }
     }
   },
   "variables": {
@@ -39,6 +45,7 @@
         "accessTier": "Cool"
       },
       "location": "[variables('location')]",
+      "tags": "[parameters('resourceTags')]",
       "sku": {
         "name": "[parameters('storageAccountType')]"
       },
