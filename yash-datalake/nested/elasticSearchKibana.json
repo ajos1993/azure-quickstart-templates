@@ -41,6 +41,12 @@
             "metadata": {
                 "description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
             }
+        },
+        "resourceTags": {
+          "type": "object",
+          "metadata": {
+            "description": " Tags assigned to resources"
+          }
         }
     },
     "variables": {
@@ -69,6 +75,7 @@
             "name": "[variables('publicIPAddressName')]",
             "apiVersion": "2018-11-01",
             "location": "[parameters('location')]",
+            "tags": "[parameters('resourceTags')]",
             "properties": {
                 "publicIPAllocationMethod": "[variables('publicIPAddressType')]",
                 "dnsSettings": {
@@ -81,6 +88,7 @@
             "name": "[variables('virtualNetworkName')]",
             "apiVersion": "2018-11-01",
             "location": "[parameters('location')]",
+            "tags": "[parameters('resourceTags')]",
             "properties": {
                 "addressSpace": {
                     "addressPrefixes": [
@@ -102,6 +110,7 @@
             "name": "[variables('nicName')]",
             "apiVersion": "2018-11-01",
             "location": "[parameters('location')]",
+            "tags": "[parameters('resourceTags')]",
             "properties": {
                 "ipConfigurations": [
                     {
@@ -131,6 +140,7 @@
             "name": "[variables('vmName')]",
             "apiVersion": "2018-10-01",
             "location": "[parameters('location')]",
+            "tags": "[parameters('resourceTags')]",
             "properties": {
                 "hardwareProfile": {
                     "vmSize": "[parameters('vmSize')]"
@@ -173,6 +183,7 @@
             "name": "[variables('networkSecurityGroupName')]",
             "apiVersion": "2018-11-01",
             "location": "[parameters('location')]",
+            "tags": "[parameters('resourceTags')]",
             "properties": {
                 "securityRules": [
                     {
@@ -300,6 +311,7 @@
             "name": "[concat(variables('vmName'),'/', variables('extensionName'))]",
             "apiVersion": "2018-10-01",
             "location": "[parameters('location')]",
+            "tags": "[parameters('resourceTags')]",
             "properties": {
                 "publisher": "Microsoft.Azure.Extensions",
                 "type": "CustomScript",
