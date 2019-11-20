@@ -28,6 +28,12 @@
     },
     "storage_name": {
       "type": "string"
+    },
+    "resourceTags": {
+      "type": "object",
+      "metadata": {
+        "description": " Tags assigned to resources"
+      }
     }
   },
   "variables": {
@@ -47,6 +53,7 @@
         "tier": "Standard"
       },
       "location": "[parameters('location')]",
+      "tags": "[parameters('resourceTags')]",
       "resources": [
         {
           "apiVersion": "2017-04-01",
@@ -109,6 +116,7 @@
         "targetWorkerSizeId": 0
       },
       "location": "[parameters('location')]",
+      "tags": "[parameters('resourceTags')]",
       "sku": {
         "name": "Y1",
         "tier": "Dynamic",
@@ -124,6 +132,7 @@
       "name": "[parameters('sites_demotriggerapp1234_name')]",
       "apiVersion": "2018-02-01",
       "location": "[parameters('location')]",
+      "tags": "[parameters('resourceTags')]",
       "properties": {
         "enabled": true,
         "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_EastUS2Plan_name'))]",
@@ -214,6 +223,7 @@
       "name": "[concat(parameters('sites_demotriggerapp1234_name'), '/', parameters('config_web_name_4'))]",
       "apiVersion": "2018-02-01",
       "location": "[parameters('location')]",
+      "tags": "[parameters('resourceTags')]",
       "properties": {
         "numberOfWorkers": 1,
         "defaultDocuments": [
