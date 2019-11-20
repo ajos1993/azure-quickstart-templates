@@ -91,6 +91,12 @@
       "metadata": {
         "description": " Azure stream analytics job name 3"
       }
+    },
+    "resourceTags": {
+      "type": "object",
+      "metadata": {
+        "description": " Tags assigned to resources"
+      }
     }
   },
   "variables": {
@@ -120,7 +126,8 @@
         "capacity": 0
       },
       "kind": "functionapp",
-      "location": "[parameters('location')]"
+      "location": "[parameters('location')]",
+      "tags": "[parameters('resourceTags')]"
     },
     {
       "type": "Microsoft.Web/sites",
@@ -225,6 +232,7 @@
       },
       "kind": "functionapp",
       "location": "[parameters('location')]",
+      "tags": "[parameters('resourceTags')]",
       "resources": [
         {
           "name": "[variables('pythonExtension')]",
@@ -325,7 +333,8 @@
         "minTlsVersion": "1.0",
         "ftpsState": "AllAllowed"
       },
-      "location": "[parameters('location')]"
+      "location": "[parameters('location')]",
+      "tags": "[parameters('resourceTags')]"
     }
   ],
   "outputs": {
