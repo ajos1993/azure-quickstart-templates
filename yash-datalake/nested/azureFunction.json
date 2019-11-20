@@ -257,7 +257,7 @@
             "displayName": "pythonextension"
           },
           "properties": {
-            "packageUri": "https://github.com/ajos1993/azure-quickstart-templates/raw/master/yash-datalake/scripts/quickstart_function_app.zip",
+            "packageUri": "https://github.com/ajos1993/azure-quickstart-templates/raw/dev/yash-datalake/scripts/quickstart_function_app.zip",
             "dbType": "None"
           }
         }
