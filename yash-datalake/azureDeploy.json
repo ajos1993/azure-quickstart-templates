@@ -202,7 +202,7 @@
     "appName": "azuredatalakeuiappa",
     "dnsLabelPrefix": "[concat('datalake',uniquestring(resourceGroup().id,deployment().name))]",
     "ES_Function_name": "elkstackfuntiona",
-    "serverfarms_EastUS2Plan_name": "EastUS2Plana",
+    "serverfarms_EastUS2Plan_name": "EastUSPlana",
     "config_web_name_4": "web",
     "_artifactsLocation": "https://raw.githubusercontent.com/ajos1993/azure-quickstart-templates/dev/yash-datalake/",
     "artloc": "https://azbotstorage.blob.core.windows.net/sample-artifacts/yash-datalake"
