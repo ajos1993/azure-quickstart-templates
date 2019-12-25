@@ -4,7 +4,6 @@
   "parameters": {
     "location": {
       "type": "string",
-      "defaultValue": "East US",
       "metadata": {
         "description": "Deployment location"
       }
