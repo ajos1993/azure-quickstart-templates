@@ -447,7 +447,7 @@
             "value": "[variables('appName')]"
           },
           "location": {
-            "value": "East US"
+            "value": "[parameters('location')]"
           },
           "web_app_id": {
             "value": "[parameters('servicePrincipalId')]"
