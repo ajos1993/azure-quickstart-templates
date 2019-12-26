@@ -97,6 +97,12 @@
       "metadata": {
         "description": "The base URI where artifacts required by this template are located including a trailing '/'"
       }
+    },
+    "resourceTags": {
+      "type": "object",
+      "metadata": {
+        "description": " Tags assigned to resources"
+      }
     }
   },
   "variables": {
@@ -121,6 +127,7 @@
       },
       "kind": "functionapp",
       "location": "[parameters('location')]",
+      "tags": "[parameters('resourceTags')]",
       "properties": {
         "name": "[variables('hostingPlanName')]",
         "perSiteScaling": false,
@@ -138,6 +145,7 @@
       ],
       "kind": "functionapp",
       "location": "[parameters('location')]",
+      "tags": "[parameters('resourceTags')]",
       "resources": [
         {
           "name": "[variables('pythonExtension')]",
@@ -325,7 +333,8 @@
         "minTlsVersion": "1.0",
         "ftpsState": "AllAllowed"
       },
-      "location": "[parameters('location')]"
+      "location": "[parameters('location')]",
+      "tags": "[parameters('resourceTags')]"
     }
   ],
   "outputs": {
