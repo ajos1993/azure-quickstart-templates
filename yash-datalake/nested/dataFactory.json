@@ -55,6 +55,12 @@
       "metadata": {
         "description": "storage account name"
       }
+    },
+    "resourceTags": {
+      "type": "object",
+      "metadata": {
+        "description": " Tags assigned to resources"
+      }
     }
   },
   "variables": {
@@ -75,6 +81,7 @@
       "apiVersion": "2018-06-01",
       "properties": {},
       "location": "[parameters('dataFactoryLocation')]",
+      "tags": "[parameters('resourceTags')]",
       "resources": [
         {
           "apiVersion": "2018-06-01",
