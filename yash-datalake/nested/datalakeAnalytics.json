@@ -25,6 +25,12 @@
       "metadata": {
         "description": "Location of the data lake analytics. "
       }
+    },
+    "resourceTags": {
+      "type": "object",
+      "metadata": {
+        "description": " Tags assigned to resources"
+      }
     }
   },
   "resources": [
@@ -32,13 +38,15 @@
       "type": "Microsoft.DataLakeStore/accounts",
       "name": "[parameters('adlStoreName')]",
       "apiVersion": "2016-11-01",
-      "location": "[parameters('dataLakeAnalyticsLocation')]"
+      "location": "[parameters('dataLakeAnalyticsLocation')]",
+      "tags": "[parameters('resourceTags')]"
     },
     {
       "type": "Microsoft.DataLakeAnalytics/accounts",
       "name": "[parameters('adlAnalyticsName')]",
       "apiVersion": "2016-11-01",
       "location": "[parameters('dataLakeAnalyticsLocation')]",
+      "tags": "[parameters('resourceTags')]",
       "dependsOn": [
         "[concat('Microsoft.DataLakeStore/accounts/', parameters('adlStoreName'))]"
       ],
