@@ -55,6 +55,12 @@
       "metadata": {
         "description": "Name of the Fourth stream Analytics Job"
       }
+    },
+    "resourceTags": {
+      "type": "object",
+      "metadata": {
+        "description": " Tags assigned to resources"
+      }
     }
   },
   "variables": {
@@ -130,13 +136,15 @@
           }
         ]
       },
-      "location": "[parameters('location')]"
+      "location": "[parameters('location')]",
+      "tags": "[parameters('resourceTags')]"
     },
     {
       "type": "Microsoft.StreamAnalytics/StreamingJobs",
       "name": "[parameters('DataAggregatorStreamAnalyticsJob1')]",
       "apiVersion": "2019-06-01",
       "location": "[parameters('location')]",
+      "tags": "[parameters('resourceTags')]",
       "properties": {
         "sku": {
           "name": "standard"
@@ -199,6 +207,8 @@
                   "tokenUserPrincipalName": "anurag.doe@git.com"
                 }
               },
+              "serialization": null,
+              "diagnostics": null
             }
           },
           {
@@ -234,6 +244,7 @@
       "name": "[parameters('DataAggregatorStreamAnalyticsJob2')]",
       "apiVersion": "2019-06-01",
       "location": "[parameters('location')]",
+      "tags": "[parameters('resourceTags')]",
       "properties": {
         "sku": {
           "name": "standard"
@@ -296,6 +307,8 @@
                   "tokenUserPrincipalName": "anurag.doe@git.com"
                 }
               },
+              "serialization": null,
+              "diagnostics": null
             }
           },
           {
@@ -331,6 +344,7 @@
       "name": "[parameters('DataAggregatorStreamAnalyticsJob3')]",
       "apiVersion": "2019-06-01",
       "location": "[parameters('location')]",
+      "tags": "[parameters('resourceTags')]",
       "properties": {
         "sku": {
           "name": "standard"
@@ -418,6 +432,8 @@
                   "tokenUserPrincipalName": "anurag.doe@git.com"
                 }
               },
+              "serialization": null,
+              "diagnostics": null
             }
           },
           {
