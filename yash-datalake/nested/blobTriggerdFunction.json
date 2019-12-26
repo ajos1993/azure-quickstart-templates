@@ -41,6 +41,12 @@
       "metadata": {
         "description": "The base URI where artifacts required by this template are located including a trailing '/'"
       }
+    },
+    "resourceTags": {
+      "type": "object",
+      "metadata": {
+        "description": " Tags assigned to resources"
+      }
     }
   },
   "variables": {
@@ -60,6 +66,7 @@
         "tier": "Standard"
       },
       "location": "[parameters('location')]",
+      "tags": "[parameters('resourceTags')]",
       "resources": [
         {
           "apiVersion": "2017-04-01",
@@ -115,6 +122,7 @@
       "name": "[parameters('serverfarms_name')]",
       "apiVersion": "2018-02-01",
       "location": "[parameters('location')]",
+      "tags": "[parameters('resourceTags')]",
       "sku": {
         "name": "Y1",
         "tier": "Dynamic",
@@ -137,6 +145,7 @@
       "name": "[parameters('sites_demotriggerapp1234_name')]",
       "apiVersion": "2018-02-01",
       "location": "[parameters('location')]",
+      "tags": "[parameters('resourceTags')]",
       "dependsOn": [
         "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_name'))]",
         "[concat('Microsoft.EventHub/namespaces/', variables('eventgridEventHubNamespaceName'))]",
