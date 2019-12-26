@@ -53,6 +53,12 @@
       "metadata": {
         "description": "The base URI where artifacts required by this template are located including a trailing '/'"
       }
+    },
+    "resourceTags": {
+      "type": "object",
+      "metadata": {
+        "description": " Tags assigned to resources"
+      }
     }
   },
   "variables": {
@@ -92,6 +98,7 @@
       "name": "[variables('virtualNetworkName')]",
       "apiVersion": "2018-11-01",
       "location": "[parameters('location')]",
+      "tags": "[parameters('resourceTags')]",
       "properties": {
         "addressSpace": {
           "addressPrefixes": [
@@ -113,6 +120,7 @@
       "name": "[variables('nicName')]",
       "apiVersion": "2018-11-01",
       "location": "[parameters('location')]",
+      "tags": "[parameters('resourceTags')]",
       "dependsOn": [
         "[concat('Microsoft.Network/publicIPAddresses/', variables('publicIPAddressName'))]",
         "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
@@ -142,6 +150,7 @@
       "name": "[variables('vmName')]",
       "apiVersion": "2018-10-01",
       "location": "[parameters('location')]",
+      "tags": "[parameters('resourceTags')]",
       "dependsOn": [
         "[concat('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
       ],
@@ -184,6 +193,7 @@
       "name": "[variables('networkSecurityGroupName')]",
       "apiVersion": "2018-11-01",
       "location": "[parameters('location')]",
+      "tags": "[parameters('resourceTags')]",
       "properties": {
         "securityRules": [
           {
@@ -311,6 +321,7 @@
       "name": "[concat(variables('vmName'),'/', variables('extensionName'))]",
       "apiVersion": "2018-10-01",
       "location": "[parameters('location')]",
+      "tags": "[parameters('resourceTags')]",
       "dependsOn": [
         "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
       ],
