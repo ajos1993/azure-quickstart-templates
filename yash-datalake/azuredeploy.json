@@ -218,7 +218,7 @@
     "ES_Function_name": "elkstackfuntiona",
     "serverfarms_name": "EastUS2Plana",
     "config_web_name_4": "web",
-    "artloc": "https://azbotstorage.blob.core.windows.net/sample-artifacts/yash-datalake"
+    "artloc": "https://yashdatalake.blob.core.windows.net/yashdatalakeresource"
   },
   "resources": [
     {
