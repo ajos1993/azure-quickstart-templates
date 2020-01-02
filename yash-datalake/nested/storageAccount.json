@@ -33,9 +33,6 @@
       }
     }
   },
-  "variables": {
-    "location": "[parameters('location')]"
-  },
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
@@ -44,7 +41,7 @@
       "properties": {
         "accessTier": "Cool"
       },
-      "location": "[variables('location')]",
+      "location": "[parameters('location')]",
       "tags": "[parameters('resourceTags')]",
       "sku": {
         "name": "[parameters('storageAccountType')]"
