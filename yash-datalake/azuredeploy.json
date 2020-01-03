@@ -213,7 +213,7 @@
     "DataAggregatorStreamAnalyticsJob1": "sellingProductPerMinJoba",
     "DataAggregatorStreamAnalyticsJob2": "geoLocationsJoba",
     "DataAggregatorStreamAnalyticsJob3": "ageGroupWiseRevenueJoba",
-    "appName": "[toLower(uniqueString(resourceGroup().id, 'azuredatalakeuiappa'))]",
+    "appName": "azuredatalakeuiappa",
     "dnsLabelPrefix": "[concat('datalake',uniquestring(resourceGroup().id,deployment().name))]",
     "ES_Function_name": "elkstackfuntiona",
     "serverfarms_name": "EastUS2Plana",
