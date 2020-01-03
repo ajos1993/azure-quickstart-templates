@@ -86,6 +86,7 @@
       "name": "[variables('publicIPAddressName')]",
       "apiVersion": "2018-11-01",
       "location": "[parameters('location')]",
+      "tags": "[parameters('resourceTags')]",
       "properties": {
         "publicIPAllocationMethod": "[variables('publicIPAddressType')]",
         "dnsSettings": {
