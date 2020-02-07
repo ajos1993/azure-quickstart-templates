@@ -565,7 +565,7 @@
             "value": "[variables('storageAccountName')]"
           },
           "kibanaFunctionHost": {
-            "value": "[variables('ES_Function_name')]"
+            "value": "[Concat(variables('ES_Function_name'),'.azurewebsites.net')]"
           },
           "kibanaFunctionPath": {
             "value": "/api/AddKibanaDashboard"
