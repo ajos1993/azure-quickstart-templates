@@ -119,14 +119,12 @@
     },
     "vm_username": {
       "type": "string",
-      "defaultValue": "[toLower(uniqueString(resourceGroup().id, 'azuredemo'))]",
       "metadata": {
         "description": "Username for the Virtual Machine."
       }
     },
     "vm_password": {
-      "type": "string",
-      "defaultValue": "Yash@1234",
+      "type": "SecureString",
       "metadata": {
         "description": "Password for the Virtual Machine."
       }
