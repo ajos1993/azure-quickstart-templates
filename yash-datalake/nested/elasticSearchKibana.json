@@ -52,8 +52,8 @@
     "variables": {
         "_artifactsLocation": "https://raw.githubusercontent.com/ajos1993/yash-datalake/master/",
         "networkSecurityGroupName": "customdatalakeSecurrityGroup",
-        "extensionName": "CustomScript",
-        "scenarioPrefix": "customscriptLinux",
+        "extensionName": "CustomScripttt",
+        "scenarioPrefix": "customscriptLinuxxx",
         "imagePublisher": "Canonical",
         "imageOffer": "UbuntuServer",
         "ubuntuOSVersion": "16.04-LTS",
