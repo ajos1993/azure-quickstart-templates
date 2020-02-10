@@ -213,8 +213,8 @@
     "DataAggregatorStreamAnalyticsJob3": "ageGroupWiseRevenueJoba",
     "appName": "azuredatalakeuiappa",
     "dnsLabelPrefix": "[concat('datalake',uniquestring(resourceGroup().id,deployment().name))]",
-    "ES_Function_name": "elkstackfuntiona",
-    "serverfarms_name": "EastUS2Plana",
+    "ES_Function_name": "[toLower(uniqueString(resourceGroup().id, 'elkstackfuntiona'))]",
+    "serverfarms_name": "[toLower(uniqueString(resourceGroup().id, 'EastUS2Plana'))]",
     "config_web_name_4": "web",
     "artloc": "https://yashdatalake.blob.core.windows.net/yashdatalakeresources"
   },
