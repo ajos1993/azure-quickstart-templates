@@ -63,7 +63,7 @@
   },
   "variables": {
     "networkSecurityGroupName": "customdatalakeSecurrityGroup",
-    "extensionName": "CustomScriptt",
+    "extensionName": "CustomScript",
     "scenarioPrefix": "customscriptLinux",
     "imagePublisher": "Canonical",
     "imageOffer": "UbuntuServer",
