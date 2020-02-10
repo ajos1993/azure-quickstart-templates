@@ -63,8 +63,8 @@
   },
   "variables": {
     "networkSecurityGroupName": "customdatalakeSecurrityGroup",
-    "extensionName": "CustomScripttt",
-    "scenarioPrefix": "customscriptLinuxxx",
+    "extensionName": "CustomScript",
+    "scenarioPrefix": "customscriptLinux",
     "imagePublisher": "Canonical",
     "imageOffer": "UbuntuServer",
     "ubuntuOSVersion": "16.04-LTS",
