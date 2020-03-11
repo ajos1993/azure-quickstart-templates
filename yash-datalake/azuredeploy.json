@@ -110,25 +110,6 @@
         "description": "The name of the Data Lake Store account to create."
       }
     },
-    "vmSize": {
-      "type": "string",
-      "metadata": {
-        "description": "Size of vm Eg. Standard_D1_v2"
-      },
-      "defaultValue": "Standard_D1_v2"
-    },
-    "vm_username": {
-      "type": "string",
-      "metadata": {
-        "description": "Username for the Virtual Machine."
-      }
-    },
-    "vm_password": {
-      "type": "SecureString",
-      "metadata": {
-        "description": "Password for the Virtual Machine."
-      }
-    },
     "OptionalWizardInstall": {
       "type": "string",
       "allowedValues": [
@@ -152,7 +133,7 @@
       "metadata": {
         "description": "Name of the Azure data lake UI app registered. Must be globally unique."
       },
-      "defaultValue": "[toLower(uniqueString(resourceGroup().id, 'azuredatalakeuiappa'))]"
+      "defaultValue": "azuredatalakeuiappa"
     },
     "servicePrincipalId": {
       "type": "string",
