@@ -253,90 +253,8 @@
     },
     {
       "type": "Microsoft.Resources/deployments",
-      "name": "dataFactory",
-      "apiVersion": "2018-02-01",
-      "dependsOn": [
-        "KibanaESDeployedVM"
-      ],
-      "properties": {
-        "mode": "Incremental",
-        "templateLink": {
-          "uri": "[uri(parameters('_artifactsLocation'),concat('nested/dataFactory.json', parameters('_artifactsLocationSasToken')))]",
-          "contentVersion": "1.0.0.0"
-        },
-        "parameters": {
-          "KibanaESDeployedVMIP": {
-            "value": "[reference('KibanaESDeployedVM').outputs.publicIpAddress.value]"
-          },
-          "storageAccountName": {
-            "value": "[variables('storageAccountName')]"
-          },
-          "_artifactsLocation": {
-            "value": "[variables('artloc')]"
-          },
-          "_artifactsLocationSasToken": {
-            "value": "[parameters('_artifactsLocationSasToken')]"
-          },
-          "dataFactoryName": {
-            "value": "[parameters('dataFactoryName')]"
-          },
-          "dataFactoryLocation": {
-            "value": "[parameters('location')]"
-          },
-          "blobContainer": {
-            "value": "[variables('blobContainer')]"
-          },
-          "servicePrincipalId": {
-            "value": "[parameters('servicePrincipalId')]"
-          },
-          "servicePrincipalKey": {
-            "value": "[parameters('servicePrincipalKey')]"
-          },
-          "resourceTags": {
-            "value": "[parameters('resourceTags')]"
-          }
-        }
-      }
-    },
-    {
-      "type": "Microsoft.Resources/deployments",
-      "name": "dataLakeAnalytics",
-      "apiVersion": "2018-02-01",
-      "dependsOn": [
-        "storageAccount"
-      ],
-      "properties": {
-        "mode": "Incremental",
-        "templateLink": {
-          "uri": "[uri(parameters('_artifactsLocation'),concat('nested/datalakeAnalytics.json', parameters('_artifactsLocationSasToken')))]",
-          "contentVersion": "1.0.0.0"
-        },
-        "parameters": {
-          "adlAnalyticsName": {
-            "value": "[parameters('adlAnalyticsName')]"
-          },
-          "adlStoreName": {
-            "value": "[parameters('adlStoreName')]"
-          },
-          "storageAccountName": {
-            "value": "[variables('storageAccountName')]"
-          },
-          "dataLakeAnalyticsLocation": {
-            "value": "[parameters('dataLakeAnalyticsLocation')]"
-          },
-          "resourceTags": {
-            "value": "[parameters('resourceTags')]"
-          }
-        }
-      }
-    },
-    {
-      "type": "Microsoft.Resources/deployments",
       "name": "EventHubTemplate",
-      "apiVersion": "2018-02-01",
-      "dependsOn": [
-        "dataLakeAnalytics"
-      ],
+      "apiVersion": "2018-02-01"
       "properties": {
         "mode": "Incremental",
         "templateLink": {
@@ -448,7 +366,6 @@
       "name": "azureFunction",
       "apiVersion": "2018-02-01",
       "dependsOn": [
-        "KibanaESDeployedVM",
         "EventHubTemplate"
       ],
       "properties": {
@@ -459,7 +376,7 @@
         },
         "parameters": {
           "KibanaESDeployedVMIP": {
-            "value": "[reference('KibanaESDeployedVM').outputs.publicIpAddress.value]"
+            "value": ""
           },
           "storageAccountName": {
             "value": "[variables('storageAccountName')]"
@@ -505,97 +422,6 @@
           },
           "_artifactsLocationSasToken": {
             "value": "[parameters('_artifactsLocationSasToken')]"
-          },
-          "resourceTags": {
-            "value": "[parameters('resourceTags')]"
-          }
-        }
-      }
-    },
-    {
-      "type": "Microsoft.Resources/deployments",
-      "name": "KibanaESDeployedVM",
-      "apiVersion": "2018-02-01",
-      "dependsOn": [
-        "storageAccount"
-      ],
-      "properties": {
-        "mode": "Incremental",
-        "templateLink": {
-          "uri": "[uri(parameters('_artifactsLocation'),concat('nested/elasticSearchKibana.json', parameters('_artifactsLocationSasToken')))]",
-          "contentVersion": "1.0.0.0"
-        },
-        "parameters": {
-          "vmSize": {
-            "value": "[parameters('vmSize')]"
-          },
-          "username": {
-            "value": "[parameters('vm_username')]"
-          },
-          "password": {
-            "value": "[parameters('vm_password')]"
-          },
-          "dnsLabelPrefix": {
-            "value": "[variables('dnsLabelPrefix')]"
-          },
-          "location": {
-            "value": "[parameters('location')]"
-          },
-          "_artifactsLocation": {
-            "value": "[parameters('_artifactsLocation')]"
-          },
-          "_artifactsLocationSasToken": {
-            "value": "[parameters('_artifactsLocationSasToken')]"
-          },
-          "resourceTags": {
-            "value": "[parameters('resourceTags')]"
-          }
-        }
-      }
-    },
-    {
-      "type": "Microsoft.Resources/deployments",
-      "name": "KibanaFunctionApp",
-      "apiVersion": "2018-02-01",
-      "dependsOn": [
-        "KibanaESDeployedVM"
-      ],
-      "properties": {
-        "mode": "Incremental",
-        "templateLink": {
-          "uri": "[uri(parameters('_artifactsLocation'),concat('nested/blobTriggerdFunction.json', parameters('_artifactsLocationSasToken')))]",
-          "contentVersion": "1.0.0.0"
-        },
-        "parameters": {
-          "storage_name": {
-            "value": "[variables('storageAccountName')]"
-          },
-          "kibanaFunctionHost": {
-            "value": "[variables('ES_Function_name')]"
-          },
-          "kibanaFunctionPath": {
-            "value": "/api/AddKibanaDashboard"
-          },
-          "EsIP": {
-            "value": "[reference('KibanaESDeployedVM').outputs.publicIpAddress.value]"
-          },
-          "serverfarms_name": {
-            "value": "[variables('serverfarms_name')]"
-          },
-          "sites_demotriggerapp1234_name": {
-            "value": "[variables('ES_Function_name')]"
-          },
-          "location": {
-            "value": "[parameters('location')]"
-          },
-          "_artifactsLocation": {
-            "value": "[parameters('_artifactsLocation')]"
-          },
-          "_artifactsLocationSasToken": {
-            "value": "[parameters('_artifactsLocationSasToken')]"
-          },
-          "config_web_name_4": {
-            "value": "[variables('config_web_name_4')]"
           },
           "resourceTags": {
             "value": "[parameters('resourceTags')]"
