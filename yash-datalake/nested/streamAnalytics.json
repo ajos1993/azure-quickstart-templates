@@ -356,31 +356,6 @@
         "dataLocale": "en-US",
         "inputs": [
           {
-            "name": "CustomerReferenceDataSet",
-            "properties": {
-              "type": "Reference",
-              "serialization": {
-                "type": "JSON",
-                "properties": {
-                  "encoding": "UTF8"
-                }
-              },
-              "datasource": {
-                "type": "Microsoft.Storage/Blob",
-                "properties": {
-                  "storageAccounts": [
-                    {
-                      "accountName": "[parameters('StorageAccountName')]",
-                      "accountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('StorageAccountName')),'2018-07-01').keys[0].value]"
-                    }
-                  ],
-                  "container": "raw",
-                  "pathPattern": "customer_updated_refrence.json"
-                }
-              }
-            }
-          },
-          {
             "name": "EventHub",
             "properties": {
               "type": "stream",
@@ -406,7 +381,7 @@
           "name": "Transformation",
           "properties": {
             "streamingUnits": "[variables('numberOfStreamingUnits')]",
-            "query": "SELECT System.Timestamp AS allEvents, \n CASE \n WHEN CS2.age >= 18 AND CS2.age < 30 THEN '18-29' \n WHEN CS2.age >= 30 AND CS2.age < 50 THEN '30-49' \n WHEN CS2.age >= 50 AND CS2.age < 65 THEN '50-64' \n WHEN CS2.age >= 65 AND CS2.age < 80 THEN '65-older' \n ELSE CONCAT( ' ', 'N A') \n END AS age_grp_category, \n COUNT(CS1.sku) AS count_customers \n INTO \n Blob \n FROM \n EventHub CS1 \n JOIN \n CustomerReferenceDataSet CS2 \n ON \n CS1.customerID = CS2.customerID \n GROUP BY \n TumblingWindow(second,10),CS2.age \n \n SELECT \n System.Timestamp AS allEvents, \n CASE \n WHEN CS2.age >= 18 AND CS2.age < 30 THEN '18-29' \n WHEN CS2.age >= 30 AND CS2.age < 50 THEN '30-49' \n WHEN CS2.age >= 50 AND CS2.age < 65 THEN '50-64' \n WHEN CS2.age >= 65 AND CS2.age < 80 THEN '65-older' \n ELSE CONCAT( ' ', 'N A') \n END AS age_grp_category, \n COUNT(CS1.sku) AS count_customers \n INTO \n PBI \n FROM \n EventHub CS1 \n JOIN \n CustomerReferenceDataSet CS2 \n ON \n CS1.customerID = CS2.customerID \n GROUP BY \n TumblingWindow(second,10),CS2.age"
+            "query": "SELECT System.Timestamp AS allEvents, \n CASE \n WHEN age >= 18 AND age < 30 THEN '18-29' \n WHEN age >= 30 AND age < 50 THEN '30-49' \n WHEN age >= 50 AND age < 65 THEN '50-64' \n WHEN age >= 65 AND age < 80 THEN '65-older' \n ELSE CONCAT( ' ', 'N A') \n END AS age_grp_category, \n COUNT(sku) AS count_customers \n INTO \n Blob \n FROM \n EventHub \n GROUP BY \n TumblingWindow(second,10),age \n \n SELECT \n System.Timestamp AS allEvents, \n CASE \n WHEN age >= 18 AND age < 30 THEN '18-29' \n WHEN age >= 30 AND age < 50 THEN '30-49' \n WHEN age >= 50 AND age < 65 THEN '50-64' \n WHEN age >= 65 AND age < 80 THEN '65-older' \n ELSE CONCAT( ' ', 'N A') \n END AS age_grp_category, \n COUNT(sku) AS count_customers \n INTO \n PBI \n FROM \n EventHub \n GROUP BY \n TumblingWindow(second,10),age"
           }
         },
         "outputs": [
