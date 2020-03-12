@@ -64,7 +64,10 @@
     }
   },
   "variables": {
-    "defaultSASKeyName": "RootManageSharedAccessKey"
+    "defaultSASKeyName": "RootManageSharedAccessKey",
+    "storageAccountName": "yashdatalake",
+    "numberOfStreamingUnits": 3,
+    "DataAggregatorOutputContainerName": "publish"
   },
   "resources": [
     {
@@ -370,11 +373,11 @@
                 "properties": {
                   "storageAccounts": [
                     {
-                      "accountName": "yashdatalake",
-                      "accountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', "yashdatalake"),'2018-07-01').keys[0].value]"
+                      "accountName": "[variables('StorageAccountName')]",
+                      "accountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('StorageAccountName')),'2018-07-01').keys[0].value]"
                     }
                   ],
-                  "container": "yashdatalakeresource",
+                  "container": "raw",
                   "pathPattern": "customer_updated_refrence.json"
                 }
               }
@@ -464,9 +467,5 @@
         ]
       }
     }
-  ],
-  "variables": {
-    "numberOfStreamingUnits": 3,
-    "DataAggregatorOutputContainerName": "publish"
-  }
+  ]
 }
