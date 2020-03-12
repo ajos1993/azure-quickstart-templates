@@ -377,7 +377,7 @@
                       "accountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('StorageAccountName')),'2018-07-01').keys[0].value]"
                     }
                   ],
-                  "container": "raw",
+                  "container": "yashdatalakeresource",
                   "pathPattern": "customer_updated_refrence.json"
                 }
               }
