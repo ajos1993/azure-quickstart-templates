@@ -370,11 +370,11 @@
                 "properties": {
                   "storageAccounts": [
                     {
-                      "accountName": "[parameters('StorageAccountName')]",
-                      "accountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('StorageAccountName')),'2018-07-01').keys[0].value]"
+                      "accountName": "yashdatalake",
+                      "accountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', "yashdatalake"),'2018-07-01').keys[0].value]"
                     }
                   ],
-                  "container": "raw",
+                  "container": "yashdatalakeresource",
                   "pathPattern": "customer_updated_refrence.json"
                 }
               }
