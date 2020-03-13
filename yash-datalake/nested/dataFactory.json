@@ -160,7 +160,7 @@
           "properties": {
             "type": "AzureBlob",
             "typeProperties": {
-              "folderPath": "yash-datalake-resource",
+              "folderPath": "yashdatalakeresource",
               "fileName": "*"
             },
             "linkedServiceName": {
