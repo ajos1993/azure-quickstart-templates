@@ -284,16 +284,16 @@
               "downloadables": {
                 "type": "string",
                 "defaultValue": [
-                  "yashdatalakeresource/datasets/customers/customerData.csv",
-                  "yashdatalakeresource/datasets/demographics/demographics_data_20170520.csv",
-                  "yashdatalakeresource/datasets/orders/order_data.csv",
-                  "yashdatalakeresource/datasets/products/products.csv2013",
-                  "yashdatalakeresource/datasets/products/products.csv2014",
-                  "yashdatalakeresource/datasets/products/products.csv2015",
-                  "yashdatalakeresource/datasets/products/products.csv2016",
-                  "yashdatalakeresource/jars/Neo4JSparkTransformation-0.0.1-SNAPSHOT-jar-with-dependencies.jar",
-                  "yashdatalakeresource/scripts/Neo4JSparkTransformation-0.0.1-SNAPSHOT-jar-with-dependencies.jar",
-				  "yashdatalakeresource/customer_updated_refrence.json"
+                  "datasets/customers/customerData.csv",
+                  "datasets/demographics/demographics_data_20170520.csv",
+                  "datasets/orders/order_data.csv",
+                  "datasets/products/products.csv2013",
+                  "datasets/products/products.csv2014",
+                  "datasets/products/products.csv2015",
+                  "datasets/products/products.csv2016",
+                  "jars/Neo4JSparkTransformation-0.0.1-SNAPSHOT-jar-with-dependencies.jar",
+                  "scripts/Neo4JSparkTransformation-0.0.1-SNAPSHOT-jar-with-dependencies.jar",
+				  "customer_updated_refrence.json"
                 ]
               }
             },
