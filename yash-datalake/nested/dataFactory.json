@@ -10,7 +10,7 @@
     },
     "_artifactsLocationSasToken": {
       "type": "SecureString",
-      "defaultValue": "",
+	  "defaultValue": "",
       "metadata": {
         "description": "The base URI where artifacts required by this template are located including a trailing '/'"
       }
@@ -292,7 +292,8 @@
                   "yashdatalakeresource/datasets/products/products.csv2015",
                   "yashdatalakeresource/datasets/products/products.csv2016",
                   "yashdatalakeresource/jars/Neo4JSparkTransformation-0.0.1-SNAPSHOT-jar-with-dependencies.jar",
-                  "yashdatalakeresource/scripts/Neo4JSparkTransformation-0.0.2-SNAPSHOT-jar-with-dependencies.jar"
+                  "yashdatalakeresource/scripts/Neo4JSparkTransformation-0.0.1-SNAPSHOT-jar-with-dependencies.jar",
+				  "yashdatalakeresource/customer_updated_refrence.json"
                 ]
               }
             },
