@@ -222,7 +222,7 @@
     "ES_Function_name": "[toLower(uniqueString(resourceGroup().id, 'elkstackfuntiona'))]",
     "serverfarms_name": "[toLower(uniqueString(resourceGroup().id, 'EastUS2Plana'))]",
     "config_web_name_4": "web",
-    "artloc": "https://yashdatalake.blob.core.windows.net/yashdatalakeresources"
+    "artloc": "https://yashdatalake.blob.core.windows.net/"
   },
   "resources": [
     {
