@@ -117,7 +117,7 @@
     {
       "type": "Microsoft.Web/serverfarms",
       "name": "[variables('hostingPlanName')]",
-      "apiVersion": "2018-02-01",
+      "apiVersion": "2019-08-01",
       "sku": {
         "name": "Y1",
         "tier": "Dynamic",
@@ -139,7 +139,7 @@
     {
       "type": "Microsoft.Web/sites",
       "name": "[variables('functionAppName')]",
-      "apiVersion": "2018-02-01",
+      "apiVersion": "2019-08-01",
       "dependsOn": [
         "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"
       ],
@@ -150,7 +150,7 @@
         {
           "name": "[variables('pythonExtension')]",
           "type": "siteextensions",
-          "apiVersion": "2018-02-01",
+          "apiVersion": "2019-08-01",
           "properties": {},
           "dependsOn": [
             "[resourceId('Microsoft.Web/sites',variables('functionAppName'))]"
@@ -160,7 +160,7 @@
           "name": "MSDeploy",
           "type": "extensions",
           "location": "[parameters('location')]",
-          "apiVersion": "2018-02-01",
+          "apiVersion": "2019-08-01",
           "dependsOn": [
             "[resourceId('Microsoft.Web/sites/', variables('functionAppName'))]",
             "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
@@ -273,7 +273,7 @@
     {
       "type": "Microsoft.Web/sites/config",
       "name": "[concat(variables('functionAppName'), '/', variables('config_web_name'))]",
-      "apiVersion": "2018-02-01",
+      "apiVersion": "2019-08-01",
       "dependsOn": [
         "[resourceId('Microsoft.Web/sites', variables('functionAppName'))]",
         "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
