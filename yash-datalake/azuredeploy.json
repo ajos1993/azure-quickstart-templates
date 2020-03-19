@@ -228,7 +228,7 @@
     {
       "type": "Microsoft.Resources/deployments",
       "name": "storageAccount",
-      "apiVersion": "2018-02-01",
+      "apiVersion": "2019-10-01",
       "properties": {
         "mode": "Incremental",
         "templateLink": {
@@ -254,7 +254,7 @@
     {
       "type": "Microsoft.Resources/deployments",
       "name": "dataFactory",
-      "apiVersion": "2018-02-01",
+      "apiVersion": "2019-10-01",
       "dependsOn": [
         "KibanaESDeployedVM"
       ],
@@ -301,7 +301,7 @@
     {
       "type": "Microsoft.Resources/deployments",
       "name": "dataLakeAnalytics",
-      "apiVersion": "2018-02-01",
+      "apiVersion": "2019-10-01",
       "dependsOn": [
         "storageAccount"
       ],
@@ -333,7 +333,7 @@
     {
       "type": "Microsoft.Resources/deployments",
       "name": "EventHubTemplate",
-      "apiVersion": "2018-02-01",
+      "apiVersion": "2019-10-01",
       "dependsOn": [
         "dataLakeAnalytics"
       ],
@@ -398,7 +398,7 @@
     {
       "type": "Microsoft.Resources/deployments",
       "name": "streamAnalyticsJobsTemplate",
-      "apiVersion": "2018-02-01",
+      "apiVersion": "2019-10-01",
       "dependsOn": [
         "EventHubTemplate"
       ],
@@ -446,7 +446,7 @@
       "condition": "[equals(parameters('OptionalWizardInstall'), 'Yes')]",
       "type": "Microsoft.Resources/deployments",
       "name": "azureFunction",
-      "apiVersion": "2018-02-01",
+      "apiVersion": "2019-10-01",
       "dependsOn": [
         "KibanaESDeployedVM",
         "EventHubTemplate"
@@ -515,7 +515,7 @@
     {
       "type": "Microsoft.Resources/deployments",
       "name": "KibanaESDeployedVM",
-      "apiVersion": "2018-02-01",
+      "apiVersion": "2019-10-01",
       "dependsOn": [
         "storageAccount"
       ],
@@ -556,7 +556,7 @@
     {
       "type": "Microsoft.Resources/deployments",
       "name": "KibanaFunctionApp",
-      "apiVersion": "2018-02-01",
+      "apiVersion": "2019-10-01",
       "dependsOn": [
         "KibanaESDeployedVM"
       ],
