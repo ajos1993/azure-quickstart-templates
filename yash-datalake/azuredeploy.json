@@ -195,6 +195,15 @@
       "metadata": {
         "description": "The sasToken required to access _artifactsLocation.  When the template is deployed using the accompanying scripts, a sasToken will be automatically generated. Use the defaultValue if the staging location is not secured."
       }
+    },
+    "resourceTags": {
+      "type": "object",
+      "defaultValue": {
+        "Owner": "",
+        "Purpose": "Azure DataLake QuickStart",
+        "Created On": "[utcNow('dd/MM/yyyy')]",
+        "Expires On": "[utcNow('dd/MM/yyyy')]"
+      }
     }
   },
   "variables": {
@@ -235,6 +244,9 @@
           },
           "location": {
             "value": "[parameters('location')]"
+          },
+          "resourceTags": {
+            "value": "[parameters('resourceTags')]"
           }
         }
       }
@@ -279,6 +291,9 @@
           },
           "servicePrincipalKey": {
             "value": "[parameters('servicePrincipalKey')]"
+          },
+          "resourceTags": {
+            "value": "[parameters('resourceTags')]"
           }
         }
       }
@@ -308,6 +323,9 @@
           },
           "dataLakeAnalyticsLocation": {
             "value": "[parameters('dataLakeAnalyticsLocation')]"
+          },
+          "resourceTags": {
+            "value": "[parameters('resourceTags')]"
           }
         }
       }
@@ -370,6 +388,9 @@
           },
           "captureNameFormat": {
             "value": "[variables('captureNameFormat')]"
+          },
+          "resourceTags": {
+            "value": "[parameters('resourceTags')]"
           }
         }
       }
@@ -414,6 +435,9 @@
           },
           "DataAggregatorStreamAnalyticsJob3": {
             "value": "[variables('DataAggregatorStreamAnalyticsJob3')]"
+          },
+          "resourceTags": {
+            "value": "[parameters('resourceTags')]"
           }
         }
       }
@@ -481,6 +505,9 @@
           },
           "_artifactsLocationSasToken": {
             "value": "[parameters('_artifactsLocationSasToken')]"
+          },
+          "resourceTags": {
+            "value": "[parameters('resourceTags')]"
           }
         }
       }
@@ -519,6 +546,9 @@
           },
           "_artifactsLocationSasToken": {
             "value": "[parameters('_artifactsLocationSasToken')]"
+          },
+          "resourceTags": {
+            "value": "[parameters('resourceTags')]"
           }
         }
       }
@@ -566,6 +596,9 @@
           },
           "config_web_name_4": {
             "value": "[variables('config_web_name_4')]"
+          },
+          "resourceTags": {
+            "value": "[parameters('resourceTags')]"
           }
         }
       }
